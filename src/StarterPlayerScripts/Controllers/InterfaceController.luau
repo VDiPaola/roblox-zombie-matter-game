@@ -17,7 +17,7 @@ function InterfaceController:KnitInit()
 		self:MountElements()
 	end)
 
-	InterfaceController._databaseService = Knit.GetService("DatabaseService")
+	InterfaceController._combatService = Knit.GetService("CombatService")
 end
 
 function InterfaceController:KnitStart()
@@ -32,11 +32,11 @@ function InterfaceController:KnitStart()
 	if #self._elements <= 0 then
 		self:MountElements()
 	end
-end
 
-function InterfaceController:AddPoint(amount)
-	self.points = self.points + amount
-	self.pointsChanged:Fire(self.points)
+	InterfaceController._combatService.onPointsChanged:Connect(function(points)
+		InterfaceController.points = points
+		InterfaceController.pointsChanged:Fire(points)
+	end)
 end
 
 function InterfaceController:MountElements()

@@ -3,12 +3,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ComponentTypes = require(ReplicatedStorage.Shared.Utils.Types.ComponentTypes)
 local Matter = require(ReplicatedStorage.WallyPackages.Matter)
 local components = require(ReplicatedStorage.Shared.components)
-local localComponents = require(ReplicatedStorage.Client.localComponents)
 
 local function Combat(world)
-	for id, hitFrameRecord in world:queryChanged(localComponents.HitFrame) do
+	for id, hitFrameRecord in world:queryChanged(components.HitFrame) do
 		if hitFrameRecord.new then
-			local hitframe: ComponentTypes.ComponentType<localComponents.HitFrameType> = hitFrameRecord.new
+			local hitframe: ComponentTypes.ComponentType<ComponentTypes.HitFrameType> = hitFrameRecord.new
 			local attackerExists = world:contains(hitframe.attackerId)
 			local modelC = world:get(hitframe.attackerId, components.Model)
 			if attackerExists and modelC and modelC.model then
@@ -47,6 +46,13 @@ local function Combat(world)
 						if humanoid and not humanoidsHit[humanoid] then
 							humanoidsHit[humanoid] = true
 							humanoid:TakeDamage(tempAttackData.damage)
+
+							--add points if player
+							local playerC = world:get(hitframe.attackerId, components.Player)
+							if playerC and playerC.userId then
+								local CombatService = require(game.ServerScriptService.Server.Services.CombatService)
+								CombatService:AddPoint(playerC.userId)
+							end
 						end
 					end
 				else

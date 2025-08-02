@@ -18,6 +18,7 @@ local components = {
 	Player = Matter.component("Player"),
 	StateChangeRequest = Matter.component("StateChangeRequest") :: ComponentTypes.ComponentType<ComponentTypes.StateChangeRequestType>,
 	AnimationPlayer = Matter.component("AnimationPlayer") :: ComponentTypes.ComponentType<ComponentTypes.AnimationPlayerType>,
+	HitFrame = Matter.component("HitFrame") :: ComponentTypes.ComponentType<ComponentTypes.HitFrameType>,
 }
 
 return components

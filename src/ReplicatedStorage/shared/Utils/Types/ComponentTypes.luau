@@ -23,4 +23,8 @@ export type ModelType = {
 	model: Model,
 }
 
+export type HitFrameType = {
+	attackerId: string,
+}
+
 return nil

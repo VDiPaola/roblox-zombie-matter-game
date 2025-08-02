@@ -24,17 +24,20 @@ local function spawnZombies(world)
 		end
 	end
 
-	for id, _ in world:query(Components.Transform, Components.Zombie):without(Components.Model) do
+	for id, _, zombieC in world:query(Components.Transform, Components.Zombie):without(Components.Model) do
 		local model = ReplicatedStorage.Assets.zombie:Clone()
 		model.Parent = workspace
 		model.PrimaryPart:SetNetworkOwner(nil)
-		model.Humanoid.HealthChanged:Connect(function(health)
-			print(health)
-		end)
+
 		world:insert(
 			id,
 			Components.Model({
 				model = model,
+			}),
+			zombieC:patch({
+				onHealthChanged = model.Humanoid.HealthChanged:Connect(function(newHealth)
+					print(newHealth)
+				end),
 			})
 		)
 	end

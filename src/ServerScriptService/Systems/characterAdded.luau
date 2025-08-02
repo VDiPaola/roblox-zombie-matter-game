@@ -12,7 +12,9 @@ local function characterAdded(world)
 				Components.Model({
 					model = character,
 				}),
-				Components.Player(),
+				Components.Player({
+					userId = player.UserId,
+				}),
 				Components.State({
 					current = StateEnums.State.Idle,
 					time = 0,
