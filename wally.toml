@@ -1,0 +1,26 @@
+[package]
+name = "enzo/roblox-matter-scaffold"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+knit = "sleitnick/knit@1.7.0"
+Roact = "roblox/roact@1.4.4"
+redux = "roblox/rodux@3.0.0"
+roact-rodux = "roblox/roact-rodux@0.5.1"
+testez = "roblox/testez@0.4.1"
+zoneplus = "mattschrubb/zoneplus@3.2.0"
+loader = "sleitnick/loader@2.0.0"
+EnumList = "sleitnick/enum-list@2.1.0"
+TableUtil = "sleitnick/table-util@1.2.1"
+promise = "evaera/promise@4.0.0"
+Signal = "sleitnick/signal@2.0.1"
+Matter = "matter-ecs/matter@0.8.5"
+plasma = "matter-ecs/plasma@0.4.3"
+rewire = "sayhisam1/rewire@0.3.0"
+
+
+[server-dependencies]
+profileservice = "surnautica/profileservice@1.0.0"
+cmdr = "evaera/cmdr@1.12.0"

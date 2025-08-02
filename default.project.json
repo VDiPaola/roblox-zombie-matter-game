@@ -1,0 +1,65 @@
+{
+  "name": "Game Name",
+  "globIgnorePaths": [ "**/.package-lock.json" ],
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$path":"src/ReplicatedStorage/shared"
+      },
+      "Client": {
+        "$path":"src/ReplicatedStorage/client"
+      },
+      "WallyPackages": {
+        "$path":"Packages"
+      },
+      "CustomPackages": {
+        "$path":"src/CustomPackages"
+      },
+
+      "Assets":{
+        "$path":"assets/ReplicatedStorage"
+      }
+    },
+
+    "ServerScriptService": {
+      "WallyServerPackages": {
+        "$path": "ServerPackages"
+      },
+
+      "Server": {
+        "$path": "src/ServerScriptService"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/StarterPlayerScripts"
+        }
+      }
+    },
+
+    "Workspace":{
+      "Rojo":{
+        "$className": "Folder",
+        "$path": "assets/level.rbxm"
+      }
+    },
+
+    "Lighting": {
+      "Rojo":{
+        "$className": "Folder",
+        "$path": "assets/lighting.rbxm"
+      }
+    },
+
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    }
+  }
+}
