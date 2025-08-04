@@ -1,6 +1,3 @@
-## Getting Started
-
-[example game](https://github.com/matter-ecs/matter/tree/main/example/)
 
 ### Prerequisites
 - Cargo
